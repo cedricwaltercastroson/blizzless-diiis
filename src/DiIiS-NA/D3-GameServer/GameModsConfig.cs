@@ -56,12 +56,18 @@ public class MonsterConfig
     public float AttacksPerSecond { get; set; } = 1.2f;
 
     public float HealthMultiplier { get; set; } = 1;
+    public float HealthBonusMultiplier { get; set; } = 1;
     public float DamageMultiplier { get; set; } = 1;
 
     /// <summary>
     /// Attack target range
     /// </summary>
-    public float LookupRange { get; set; } = 50f;
+    public float LookupRange { get; set; } = 80f;
+
+    /// <summary>
+    /// Total health bonus multiplier that can be applied to a monster
+    /// </summary>
+    public float HealthBonusMultiplierCap { get; set; } = 1.025f;
 }
 
 public class QuestConfig
@@ -155,7 +161,7 @@ public class GameModsConfig
                     return;
                 }
 
-                Logger.Fatal("An error occured whilst loading $[white on red]$config.mods.json$[/]$ file. Please verify if the file is correct. Delete the file and try again.");
+                Logger.Fatal("An error occurred whilst loading $[white on red]$config.mods.json$[/]$ file. Please verify if the file is correct. Delete the file and try again.");
                 Program.Shutdown(ex);
             }
         }
